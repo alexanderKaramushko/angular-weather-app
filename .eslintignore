@@ -1,0 +1,10 @@
+node_modules
+build
+dist
+public
+esbuild
+
+.eslintrc.js
+stylelint.config.js
+commitlint.config.js
+jest.config.ts
