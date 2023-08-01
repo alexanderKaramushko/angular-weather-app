@@ -1,4 +1,6 @@
 <tabset>
-  <tab heading="Brief" id="tab1">Brief weather forecast</tab>
+  <tab heading="Brief" id="tab1">
+    {{(forecast | async).timezone}}
+  </tab>
   <tab heading="Detailed">Detailed weather forecast</tab>
 </tabset>

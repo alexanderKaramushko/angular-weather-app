@@ -1,6 +1,6 @@
 import { Inject, Injectable, InjectionToken, Optional, SkipSelf } from '@angular/core';
 
-import { Environment } from '../../../environments/model';
+import { Environment } from 'src/environments/model';
 
 export const ENVIRONMENT = new InjectionToken<Environment>('environment.service');
 

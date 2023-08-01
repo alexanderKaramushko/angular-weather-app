@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 
 import { ENVIRONMENT, EnvironmentService } from './environment.service';
 
-let environmentService: EnvironmentService;
-
 describe('Test environment service', () => {
+  let service: EnvironmentService;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -21,16 +21,16 @@ describe('Test environment service', () => {
   });
 
   it('should return environment value', () => {
-    environmentService = TestBed.inject(EnvironmentService);
+    service = TestBed.inject(EnvironmentService);
 
-    expect(environmentService.getValue('production')).toBe(true);
+    expect(service.getValue('production')).toBe(true);
   });
 
   it('should throw error if environment is undefined', () => {
     TestBed.overrideProvider(ENVIRONMENT, { useValue: null });
 
-    environmentService = TestBed.inject(EnvironmentService);
+    service = TestBed.inject(EnvironmentService);
 
-    expect(() => environmentService.getValue('apiUrl')).toThrow(new Error('No environment'));
+    expect(() => service.getValue('apiUrl')).toThrow(new Error('No environment'));
   });
 });
