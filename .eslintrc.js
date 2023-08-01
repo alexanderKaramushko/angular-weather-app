@@ -33,6 +33,7 @@ module.exports = {
         "jasmine"
       ],
       rules: {
+        'no-useless-constructor': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': 'error',
         'no-unused-vars': 'off',
@@ -145,7 +146,7 @@ module.exports = {
             groups: [
               ['@angular', '^@?\\w'],
 
-              ['^(components)(/.*|$)'],
+              ['^(src)(/.*|$)'],
 
               ['^\\u0000'],
               ['^.+\\.?(scss)$']
