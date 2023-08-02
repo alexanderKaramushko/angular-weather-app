@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ApiInterceptor } from './core/interceptors/api.interceptor';
+import { httpInterceptorProviders } from './core/interceptors/httpInterceptorProviders';
 import { ENVIRONMENT } from './core/services/environment.service';
 
 @NgModule({
@@ -24,11 +24,7 @@ import { ENVIRONMENT } from './core/services/environment.service';
       provide: ENVIRONMENT,
       useValue: environment,
     },
-    {
-      multi: true,
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiInterceptor,
-    },
+    httpInterceptorProviders,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
