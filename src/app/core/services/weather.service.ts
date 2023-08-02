@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { CloudCover, Forecast, Windspeed } from 'src/app/core/models/forecast.model';
@@ -27,18 +27,13 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getForecast(query: ForecastQuery) {
-    const { hourly, ...rest } = query;
-
     return this.http.get<Forecast>(
       '/forecast',
       {
-        params: {
-          ...rest,
-          ...(Array.isArray(hourly)
-            ? { hourly: hourly?.join(',') }
-            : {}
-          ),
-        },
+        params: new HttpParams()
+          .set('latitude', query.latitude)
+          .set('longitude', query.longitude)
+          .set('hourly', query.hourly ? query.hourly?.join(',') : ''),
       },
     );
   }
