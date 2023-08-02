@@ -11,12 +11,12 @@ import { WeatherService } from 'src/app/core/services/weather.service';
 })
 export class MainComponent implements OnInit {
 
-  forecast: Observable<Forecast> | undefined;
+  forecast$: Observable<Forecast> | undefined;
 
   constructor(private weather: WeatherService) { }
 
   ngOnInit(): void {
-    this.forecast = this.weather.getForecast({
+    this.forecast$ = this.weather.getForecast({
       latitude: 37.625,
       longitude: 55.75,
     });
