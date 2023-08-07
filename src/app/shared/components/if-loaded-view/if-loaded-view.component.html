@@ -1,0 +1,6 @@
+<div *ifLoaded="isLoading; loader: loader">
+  <ng-content></ng-content>
+</div>
+<ng-template #loader>
+  <span data-testid="loader">Loading...</span>
+</ng-template>
