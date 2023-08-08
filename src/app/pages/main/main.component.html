@@ -1,8 +1,8 @@
 <tabset>
   <tab heading="Brief" id="tab1">
-    <!-- <if-loaded-view [isLoading]="!!(forecast$ | async)?.timezone"> -->
-    {{(forecast$ | async)?.timezone}}
-    <!-- </if-loaded-view> -->
+    <if-loaded-view [isLoading]="!!(forecast$ | async)?.timezone">
+      {{(forecast$ | async)?.timezone}}
+    </if-loaded-view>
   </tab>
   <tab heading="Detailed">Detailed weather forecast</tab>
 </tabset>
