@@ -10,6 +10,7 @@ import { CloudCover, Forecast, Windspeed } from 'src/app/core/models/forecast.mo
 export type ForecastQuery = {
   longitude: Longitude;
   latitude: Latitude;
+  currentWeather?: boolean;
   hourly?: Array<
     | 'temperature_2m'
     | 'pressure_msl'
@@ -33,6 +34,7 @@ export class WeatherService {
         params: new HttpParams()
           .set('latitude', query.latitude)
           .set('longitude', query.longitude)
+          .set('current_weather', query.currentWeather)
           .set('hourly', query.hourly ? query.hourly?.join(',') : ''),
       },
     );

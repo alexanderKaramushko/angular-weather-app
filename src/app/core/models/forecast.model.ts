@@ -39,6 +39,18 @@ export type Hourly = {
   time?: Time[];
 }
 
+export type CurrentWeather = {
+  is_day: number;
+  temperature: number;
+  /**
+   * @description format: 2023-08-08T12:00
+   */
+  time: string;
+  weathercode: number;
+  winddirection: number;
+  windspeed: number;
+}
+
 export class Forecast {
 
   constructor(
@@ -46,6 +58,7 @@ export class Forecast {
     public latitude: Latitude,
     public hourly?: Hourly,
     public hourly_units?: HourlyUnits,
+    public current_weather?: CurrentWeather,
     public elevation?: number,
     public generationtime_ms?: number,
     public timezone?: string,
