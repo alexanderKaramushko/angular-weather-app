@@ -1,2 +1,9 @@
 <p>Weather</p>
+<div ngClass="alertContainer">
+  <ng-container *ngFor="let notification of notifications.notifications; trackBy: trackByMessage">
+    <alert [type]="alertNotificationTypes[notification.type]">
+      {{notification.message}}
+    </alert>
+  </ng-container>
+</div>
 <router-outlet></router-outlet>

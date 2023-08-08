@@ -1,0 +1,6 @@
+.alertContainer {
+  max-width: 320px;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+}
