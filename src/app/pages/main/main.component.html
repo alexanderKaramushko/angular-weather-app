@@ -1,6 +1,6 @@
 <tabset>
   <tab heading="Кратко" id="tab1">
-    <ng-container *ngTemplateOutlet="forecast; context: { forecastData: forecast$ | async }">
+    <ng-container *ngTemplateOutlet="forecast; context: { forecastData: getForecast$ | async }">
     </ng-container>
     <ng-template #forecast let-forecast="forecastData">
       <if-loaded-view [isLoading]="forecast">
