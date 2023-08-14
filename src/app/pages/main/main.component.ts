@@ -1,30 +1,31 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { debounceTime, Subject, switchMap } from 'rxjs';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import { ForecastQuery, WeatherService } from 'src/app/core/services/weather.service';
+import { Forecast } from 'src/app/core/models/forecast.model';
+import * as forecastActions from 'src/app/core/store/forecast.actions';
+import * as forecastSelectors from 'src/app/core/store/forecast.selectors';
+import * as forecastStore from 'src/app/core/store/forecast.store';
 
 @Component({
   selector: 'main',
   styleUrls: ['./main.component.css'],
   templateUrl: './main.component.html',
 })
-export class MainComponent implements AfterViewInit {
+export class MainComponent {
 
-  forecast$ = new Subject();
+  forecast$: Observable<Forecast | null>;
 
-  getForecast$ = this.forecast$.pipe(
-    debounceTime(250),
-    switchMap((query: ForecastQuery) => this.weather.getForecast(query)),
-  )
+  constructor(private store: Store<forecastStore.ForecastState>) {
+    this.store.dispatch(forecastActions.requestLoadForecast({
+      forecastQuery: {
+        currentWeather: true,
+        latitude: 37.625,
+        longitude: 55.75,
+      },
+    }));
 
-  constructor(private weather: WeatherService) { }
-
-  ngAfterViewInit(): void {
-    this.forecast$.next({
-      currentWeather: true,
-      latitude: 37.625,
-      longitude: 55.75,
-    });
+    this.forecast$ = this.store.select(forecastSelectors.forecast);
   }
 
 }

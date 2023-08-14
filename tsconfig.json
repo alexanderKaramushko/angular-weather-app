@@ -15,7 +15,8 @@
     "lib": [
       "es2022",
       "dom"
-    ]
+    ],
+    "useDefineForClassFields": false
   },
   "files": [
     "src/main.ts",
