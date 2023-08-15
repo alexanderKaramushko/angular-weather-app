@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Forecast } from '../models/forecast.model';
+import { Forecast } from '../model/forecast.model';
 import { ForecastQuery } from '../services/weather.service';
 
 export const requestLoadForecast = createAction(

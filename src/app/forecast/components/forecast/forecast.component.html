@@ -1,0 +1,24 @@
+<ng-container *ngTemplateOutlet="forecast; context: { forecastData: forecast$ | async }">
+</ng-container>
+<ng-template #forecast let-forecast="forecastData">
+  <if-loaded-view [isLoading]="forecast">
+    <ng-container [ngSwitch]="forecast?.current_weather?.is_day">
+      Сутки:
+      <ng-container *ngSwitchCase="1">
+        <img width="100px" src="/assets/icons/day.svg" alt="day.svg">
+      </ng-container>
+      <ng-container *ngSwitchCase="0">
+        <img width="100px" src="/assets/icons/night.svg" alt="night.svg">
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        Данные не получены
+      </ng-container>
+    </ng-container>
+    <div>
+      Температура: {{forecast?.current_weather?.temperature}}
+    </div>
+    <div>
+      Скорость ветра: {{forecast?.current_weather?.windspeed}}
+    </div>
+  </if-loaded-view>
+</ng-template>

@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { Forecast } from '../models/forecast.model';
+import { Forecast } from 'src/app/forecast/model/forecast.model';
+
 import { loadForecast } from './forecast.actions';
 
 export const forecastFeatureKey = 'forecast';

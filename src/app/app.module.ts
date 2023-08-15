@@ -15,8 +15,6 @@ import { httpInterceptorProviders } from './core/interceptors/httpInterceptorPro
 import { HeaderComponent } from './core/layout/header/header.component';
 import { MainComponent } from './core/layout/main/main.component';
 import { ENVIRONMENT } from './core/services/environment.service';
-import { ForecastEffects } from './core/store/forecast.effects';
-import { forecastReducer } from './core/store/forecast.store';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -28,13 +26,10 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-
-    // todo вынести на уровень forFeature
-    StoreModule.forRoot({ forecast: forecastReducer }, {}),
-    EffectsModule.forRoot([ForecastEffects]),
-
     StoreDevtoolsModule.instrument({ logOnly: environment.production, maxAge: 25 }),
     StoreRouterConnectingModule.forRoot(),
+    StoreModule.forRoot(),
+    EffectsModule.forRoot(),
   ],
   providers: [
     {

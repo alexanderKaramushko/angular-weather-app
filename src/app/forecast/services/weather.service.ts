@@ -2,7 +2,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { CloudCover, Forecast, Windspeed } from 'src/app/core/models/forecast.model';
+import { CloudCover, Forecast, Windspeed } from 'src/app/forecast/model/forecast.model';
 
 /**
  * @see {@link https://open-meteo.com/en/docs} API docs
