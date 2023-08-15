@@ -1,3 +1,26 @@
-.map {
-  margin: 24px 0;
+.container {
+  display: grid;
+  gap: 24px;
+
+  /* stylelint-disable-next-line declaration-colon-space-after */
+  grid-template-areas:
+    "mode mode"
+    "filters view"
+  ;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 400px;
+  margin-top: 24px;
+}
+
+.mode {
+  grid-area: mode;
+}
+
+.content {
+  grid-area: view;
+}
+
+.filters {
+  grid-area: filters;
 }

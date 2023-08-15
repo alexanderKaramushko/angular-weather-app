@@ -10,6 +10,11 @@ import * as forecastStore from 'src/app/forecast/store/forecast.store';
 const ulLatitude = 54.32824;
 const ulLongitude = 48.38657;
 
+enum Mode {
+  MAP,
+  INPUTS,
+}
+
 @Component({
   selector: 'forecast',
   styleUrls: ['./forecast.component.css'],
@@ -22,6 +27,10 @@ export class ForecastComponent {
   latitude = ulLatitude;
 
   longitude = ulLongitude;
+
+  mode = Mode.MAP;
+
+  enumModes = Mode;
 
   constructor(private store: Store<forecastStore.ForecastState>) {
     this.updateForecast(this.latitude, this.longitude);
@@ -44,6 +53,10 @@ export class ForecastComponent {
     this.longitude = coords.longitude;
 
     this.updateForecast(this.latitude, this.longitude);
+  }
+
+  changeMode(mode: Mode) {
+    this.mode = mode;
   }
 
 }

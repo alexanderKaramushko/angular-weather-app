@@ -1,6 +1,6 @@
 .map-container {
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 .map-frame {
@@ -10,6 +10,10 @@
   .leaflet-container {
     height: 100%;
     width: 100%;
+  }
+
+  .leaflet-top {
+    z-index: initial;
   }
 }
 

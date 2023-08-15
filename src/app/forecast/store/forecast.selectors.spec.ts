@@ -1,4 +1,4 @@
-import { Forecast } from '../models/forecast.model';
+import { Forecast } from '../model/forecast.model';
 import { forecast as forecastSelector } from './forecast.selectors';
 
 describe('Test forecast selectors', () => {

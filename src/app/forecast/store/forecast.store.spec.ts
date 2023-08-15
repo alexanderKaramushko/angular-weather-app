@@ -1,4 +1,4 @@
-import { Forecast } from '../models/forecast.model';
+import { Forecast } from '../model/forecast.model';
 import { loadForecast } from './forecast.actions';
 import * as forecastStore from './forecast.store';
 

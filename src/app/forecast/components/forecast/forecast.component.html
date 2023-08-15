@@ -1,27 +1,52 @@
-<div class="map">
-  <app-map [latitude]="latitude" [longitude]="longitude" (coordsChanged)="handleCoordsChange($event)"></app-map>
-</div>
-<ng-container *ngTemplateOutlet="forecast; context: { forecastData: forecast$ | async }">
-</ng-container>
-<ng-template #forecast let-forecast="forecastData">
-  <if-loaded-view [isLoading]="forecast">
-    <ng-container [ngSwitch]="forecast?.current_weather?.is_day">
-      Сутки:
-      <ng-container *ngSwitchCase="1">
-        <img width="100px" src="/assets/icons/day.svg" alt="day.svg">
-      </ng-container>
-      <ng-container *ngSwitchCase="0">
-        <img width="100px" src="/assets/icons/night.svg" alt="night.svg">
-      </ng-container>
-      <ng-container *ngSwitchDefault>
-        Данные не получены
-      </ng-container>
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="container">
+  <div class="mode">
+    <div class="btn-group" dropdown>
+      <button dropdownToggle data-testid="mode-button" type="button" class="btn btn-primary dropdown-toggle"
+        aria-controls="dropdown-basic">
+        Режим фильтрации <span class="caret"></span>
+      </button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <li role="menuitem">
+          <div (click)="changeMode(enumModes.MAP)" data-testid="mode-map" class="dropdown-item">Карта</div>
+        </li>
+        <li role="menuitem">
+          <div (click)="changeMode(enumModes.INPUTS)" data-testid="mode-inputs" class="dropdown-item">Ввод</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="filters">
+    <app-map *ngIf="mode === enumModes.MAP" data-testid="map" [latitude]="latitude" [longitude]="longitude"
+      (coordsChanged)="handleCoordsChange($event)"></app-map>
+    <div *ngIf="mode === enumModes.INPUTS" data-testid="inputs">
+      inputs
+    </div>
+  </div>
+  <div class="view">
+    <ng-container *ngTemplateOutlet="forecast; context: { forecastData: forecast$ | async }">
     </ng-container>
-    <div>
-      Температура: {{forecast?.current_weather?.temperature}}
-    </div>
-    <div>
-      Скорость ветра: {{forecast?.current_weather?.windspeed}}
-    </div>
-  </if-loaded-view>
-</ng-template>
+    <ng-template #forecast let-forecast="forecastData">
+      <if-loaded-view [isLoading]="forecast">
+        <ng-container [ngSwitch]="forecast?.current_weather?.is_day">
+          Сутки:
+          <ng-container *ngSwitchCase="1">
+            <img width="100px" src="/assets/icons/day.svg" alt="day.svg">
+          </ng-container>
+          <ng-container *ngSwitchCase="0">
+            <img width="100px" src="/assets/icons/night.svg" alt="night.svg">
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            n/d
+          </ng-container>
+        </ng-container>
+        <div>
+          Температура: {{forecast?.current_weather?.temperature ?? 'n/d'}}
+        </div>
+        <div>
+          Скорость ветра: {{forecast?.current_weather?.windspeed ?? 'n/d'}}
+        </div>
+      </if-loaded-view>
+    </ng-template>
+  </div>
+</div>
