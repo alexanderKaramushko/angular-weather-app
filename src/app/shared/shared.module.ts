@@ -4,10 +4,11 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { IfLoadedViewModule } from './components/if-loaded-view/if-loaded-view.module';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
-  declarations: [],
-  exports: [TabsModule, AlertModule, IfLoadedViewModule],
+  declarations: [MapComponent],
+  exports: [TabsModule, AlertModule, IfLoadedViewModule, MapComponent],
   imports: [
     CommonModule,
     TabsModule.forRoot(),
