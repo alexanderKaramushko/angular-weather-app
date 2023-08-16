@@ -1,0 +1,11 @@
+<form class="form" [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <div>
+    <label for="latitude">Широта: </label>
+    <input data-testid="latitude" id="latitude" type="text" formControlName="latitude">
+  </div>
+  <div>
+    <label for="longitude">Долгота: </label>
+    <input data-testid="longitude" id="longitude" type="text" formControlName="longitude">
+  </div>
+  <button data-testid="submit" type="submit" [disabled]="!form.valid">Apply</button>
+</form>

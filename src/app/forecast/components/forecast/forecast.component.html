@@ -20,7 +20,7 @@
     <app-map *ngIf="mode === enumModes.MAP" data-testid="map" [latitude]="latitude" [longitude]="longitude"
       (coordsChanged)="handleCoordsChange($event)"></app-map>
     <div *ngIf="mode === enumModes.INPUTS" data-testid="inputs">
-      inputs
+      <filters (filtersChanged)="handleCoordsChange($event)"></filters>
     </div>
   </div>
   <div class="view">

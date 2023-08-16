@@ -7,7 +7,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { Forecast } from '../../model/forecast.model';
 import { ForecastComponent } from './forecast.component';
 
-fdescribe('ForecastComponent', () => {
+describe('ForecastComponent', () => {
   let component: ForecastComponent;
   let fixture: ComponentFixture<ForecastComponent>;
 
