@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "sourceMap": true,
