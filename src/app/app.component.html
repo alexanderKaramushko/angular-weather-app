@@ -1,4 +1,16 @@
-<header-layout></header-layout>
-<main-layout>
-  <router-outlet></router-outlet>
-</main-layout>
+<div [class]="'theme-wrapper ' + theme">
+  <header-layout>
+    <mat-form-field data-testid="mode-button">
+      <mat-label>Тема</mat-label>
+      <mat-select [(value)]="theme" matNativeControl>
+        <mat-option [value]="themes.DARK" data-testid="mode-map">Темная</mat-option>
+        <mat-option [value]="themes.LIGHT" data-testid="mode-inputs">Светлая</mat-option>
+        <mat-option [value]="themes.NATURE" data-testid="mode-inputs">Природа</mat-option>
+        <mat-option [value]="themes.DEFAULT" data-testid="mode-inputs">Дефолт</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </header-layout>
+  <main-layout>
+    <router-outlet></router-outlet>
+  </main-layout>
+</div>

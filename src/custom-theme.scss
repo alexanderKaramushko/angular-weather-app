@@ -1,24 +1,60 @@
-
 @use "@angular/material" as mat;
 
 @include mat.core();
 
-$weather-primary: mat.define-palette(mat.$indigo-palette);
-$weather-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+@import "./themes/default-theme";
 
-$weather-warn: mat.define-palette(mat.$red-palette);
+@import "./themes/light-theme";
 
-$weather-theme: mat.define-light-theme((
-  color: (
-    primary: $weather-primary,
-    accent: $weather-accent,
-    warn: $weather-warn,
-  )
-));
+@import "./themes/black-theme";
 
-@include mat.all-component-themes($weather-theme);
+@import "./themes/nature-theme";
+
+@import "./app/app.component.scss-theme.scss";
+
+@mixin custom-components-theme($theme) {
+  @include anms-app-component-theme($theme);
+}
+
+.default-theme {
+  @include mat.all-component-themes($anms-theme);
+
+  @include custom-components-theme($anms-theme);
+}
+
+.light-theme {
+  @include mat.all-component-themes($anms-light-theme);
+
+  @include custom-components-theme($anms-light-theme);
+}
+
+.black-theme {
+  @include mat.all-component-themes($anms-black-theme);
+
+  @include custom-components-theme($anms-black-theme);
+}
+
+.nature-theme {
+  @include mat.all-component-themes($anms-nature-theme);
+
+  @include custom-components-theme($anms-nature-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  // .theme-wrapper {
+  //   @include mat.all-component-themes($anms-black-theme);
+  
+  //   @include custom-components-theme($anms-black-theme);
+  // }
+}
 
 html,
-body { height: 100%; }
+body { 
+  height: 100%; 
+}
 
-body { font-family: Roboto, "Helvetica Neue", sans-serif; margin: 0; }
+body { 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+}
