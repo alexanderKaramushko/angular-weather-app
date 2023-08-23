@@ -1,25 +1,18 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="container">
   <div class="mode">
-    <div class="btn-group" dropdown>
-      <button dropdownToggle data-testid="mode-button" type="button" class="btn btn-primary dropdown-toggle"
-        aria-controls="dropdown-basic">
-        Режим фильтрации <span class="caret"></span>
-      </button>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-        <li role="menuitem">
-          <div (click)="changeMode(enumModes.MAP)" data-testid="mode-map" class="dropdown-item">Карта</div>
-        </li>
-        <li role="menuitem">
-          <div (click)="changeMode(enumModes.INPUTS)" data-testid="mode-inputs" class="dropdown-item">Ввод</div>
-        </li>
-      </ul>
-    </div>
+    <mat-form-field data-testid="mode-button">
+      <mat-label>Режим фильтрации</mat-label>
+      <mat-select [(value)]="mode" matNativeControl required>
+        <mat-option [value]="modes.MAP" data-testid="mode-map">Map</mat-option>
+        <mat-option [value]="modes.INPUTS" data-testid="mode-inputs">Inputs</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
   <div class="filters">
-    <app-map *ngIf="mode === enumModes.MAP" data-testid="map" [latitude]="latitude" [longitude]="longitude"
+    <app-map *ngIf="mode === modes.MAP" data-testid="map" [latitude]="latitude" [longitude]="longitude"
       (coordsChanged)="handleCoordsChange($event)"></app-map>
-    <div *ngIf="mode === enumModes.INPUTS" data-testid="inputs">
+    <div *ngIf="mode === modes.INPUTS" data-testid="inputs">
       <filters (filtersChanged)="handleCoordsChange($event)"></filters>
     </div>
   </div>

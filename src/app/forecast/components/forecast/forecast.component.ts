@@ -30,7 +30,7 @@ export class ForecastComponent {
 
   mode = Mode.MAP;
 
-  enumModes = Mode;
+  modes = Mode;
 
   constructor(private store: Store<forecastStore.ForecastState>) {
     this.updateForecast(this.latitude, this.longitude);
@@ -53,10 +53,6 @@ export class ForecastComponent {
     this.longitude = coords.longitude;
 
     this.updateForecast(this.latitude, this.longitude);
-  }
-
-  changeMode(mode: Mode) {
-    this.mode = mode;
   }
 
 }
