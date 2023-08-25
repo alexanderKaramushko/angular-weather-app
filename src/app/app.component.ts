@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
+import { LocalStorageService } from './core/services/local-storage.service';
 import { NotificationsService, NotificationType } from './core/services/notifications.service';
-import { CustomSnackbarComponent, CustomSnackbarData, CustomSnackbarType } from './shared/components/custom-snackbar/custom-snackbar.component';
-
-enum Theme {
-  DARK = 'black-theme',
-  LIGHT = 'light-theme',
-  NATURE = 'nature-theme',
-  DEFAULT = 'default-theme',
-}
+import { AppState } from './core/store/core.store';
+import { changeThemeAction } from './core/store/settings/settings.actions';
+import { Theme } from './core/store/settings/settings.model';
+import { themeSelector } from './core/store/settings/settings.selectors';
+import {
+  CustomSnackbarComponent,
+  CustomSnackbarData,
+  CustomSnackbarType,
+} from './shared/components/custom-snackbar/custom-snackbar.component';
 
 @Component({
   selector: 'app-root',
@@ -18,19 +22,30 @@ enum Theme {
 })
 export class AppComponent implements OnInit {
 
-  constructor(public notifications: NotificationsService, private snackBar: MatSnackBar) { }
-
   snackbarTypes: Record<number, CustomSnackbarType> = {
     [NotificationType.ERROR]: CustomSnackbarType.ERROR,
     [NotificationType.SUCCESS]: CustomSnackbarType.SUCCESS,
   };
 
-  // todo вынести управление настройками в feature
-  theme = Theme.LIGHT;
+  theme$: Observable<Theme>;
 
   themes = Theme;
 
+  constructor(
+    public notifications: NotificationsService,
+    private snackBar: MatSnackBar,
+    public store: Store<AppState>,
+  ) {
+    LocalStorageService.loadInitialState();
+  }
+
+  changeTheme(theme: Theme): void {
+    this.store.dispatch(changeThemeAction({ theme }));
+  }
+
   ngOnInit(): void {
+    this.theme$ = this.store.select(themeSelector);
+
     this.notifications.notifications$.subscribe((notifications) => {
       const [notification] = notifications;
 

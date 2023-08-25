@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from 'rxjs';
 
-import { WeatherService } from '../services/weather.service';
+import { WeatherService } from 'src/app/forecast/services/weather.service';
+
 import { loadForecast, requestLoadForecast } from './forecast.actions';
 
 @Injectable()
