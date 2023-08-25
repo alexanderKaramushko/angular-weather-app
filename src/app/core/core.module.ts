@@ -9,12 +9,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 
 import { httpInterceptorProviders } from './interceptors/httpInterceptorProviders';
+import { MainLayoutModule } from './layout/main/main-layout.module';
 import { ENVIRONMENT } from './services/environment.service';
 import { coreMetaReducers, coreReducers } from './store/core.store';
 import { SettingsEffects } from './store/settings/settings.effects';
 
 @NgModule({
   declarations: [],
+  exports: [
+    MainLayoutModule,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -22,6 +26,7 @@ import { SettingsEffects } from './store/settings/settings.effects';
     StoreRouterConnectingModule.forRoot(),
     StoreModule.forRoot(coreReducers, { metaReducers: coreMetaReducers }),
     EffectsModule.forRoot([SettingsEffects]),
+    MainLayoutModule,
   ],
   providers: [
     {

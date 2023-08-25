@@ -3,13 +3,16 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import {
+  faBars,
   faCheck,
   faCircleExclamation,
   faClose,
@@ -31,6 +34,8 @@ import { MapComponent } from './components/map/map.component';
     FontAwesomeModule,
     MatButtonModule,
     MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,8 @@ import { MapComponent } from './components/map/map.component';
     FontAwesomeModule,
     MatButtonModule,
     MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
   ],
 })
 export class SharedModule {
@@ -49,6 +56,7 @@ export class SharedModule {
       faCheck,
       faCircleExclamation,
       faClose,
+      faBars,
     );
   }
 
