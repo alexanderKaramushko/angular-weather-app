@@ -7,3 +7,7 @@ Shitty start-up to dive into Angular.
 - вынести управление показом увелдомлений в сервис
 - добавить смену языков
 - исправить тесты
+
+## Deploy
+
+build -> deploy to heroku -> get DNS record -> view
