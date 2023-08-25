@@ -50,7 +50,6 @@ export class AppComponent implements OnInit {
       const [notification] = notifications;
 
       if (notification) {
-        // todo вынести управление показом в сервис
         this.snackBar.openFromComponent<CustomSnackbarComponent, CustomSnackbarData>(CustomSnackbarComponent, {
           data: {
             message: notification.message,
