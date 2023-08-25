@@ -5,10 +5,10 @@
   /* stylelint-disable-next-line declaration-colon-space-after */
   grid-template-areas:
     "mode mode"
-    "filters view"
+    "view filters"
   ;
 
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto minmax(320px, 600px);
   grid-template-rows: 50px 400px;
   margin-top: 24px;
 }

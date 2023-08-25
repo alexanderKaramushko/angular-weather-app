@@ -1,7 +1,7 @@
 export enum Theme {
   DEFAULT = 'default-theme',
   LIGHT = 'light-theme',
-  DARK = 'dark-theme',
+  DARK = 'black-theme',
   NATURE = 'nature-theme',
 }
 

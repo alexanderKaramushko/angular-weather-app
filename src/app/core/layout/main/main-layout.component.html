@@ -1,12 +1,12 @@
-<div ngClass="container">
+<div class="container">
   <mat-sidenav-container>
-    <mat-sidenav class="sidenav" #sidenav opened>
+    <mat-sidenav class="sidenav" #sidenav>
       <h3>Настройки</h3>
       <ng-content select="[sidenav]"></ng-content>
     </mat-sidenav>
-    <mat-sidenav-content color="primary">
+    <mat-sidenav-content class="content" color="primary">
       <mat-toolbar>
-        <button mat-icon-button (click)="sidenav.open()">
+        <button mat-icon-button (click)="sidenav.open()" color="primary">
           <fa-icon icon="bars"></fa-icon>
         </button>
       </mat-toolbar>

@@ -59,6 +59,14 @@ export class AppComponent implements OnInit {
         });
       }
     });
+
+    this.theme$.subscribe((theme) => {
+      Object.values(Theme).forEach((themeItem) => {
+        document.body.classList.remove(themeItem);
+      });
+
+      document.body.classList.add(theme);
+    });
   }
 
 }

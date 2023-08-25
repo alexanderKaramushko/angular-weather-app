@@ -14,22 +14,42 @@
 
 @mixin custom-components-theme($theme) {
   @include anms-app-component-theme($theme);
+
+  .notification-overlay {
+    $primary: map-get($theme, primary);
+
+    background-color: mat.get-color-from-palette($primary, lighter);
+  }
+}
+
+@mixin mat-components-theme($theme) {
+  @include mat.core-theme($theme);
+
+  @include mat.tabs-theme($theme);
+
+  @include mat.sidenav-theme($theme);
+
+  @include mat.form-field-theme($theme);
+
+  @include mat.select-theme($theme);
+
+  @include mat.input-theme($theme);
 }
 
 .default-theme {
-  @include mat.all-component-themes($anms-theme);
+  @include mat-components-theme($anms-theme);
 
   @include custom-components-theme($anms-theme);
 }
 
 .light-theme {
-  @include mat.all-component-themes($anms-light-theme);
+  @include mat-components-theme($anms-light-theme);
 
   @include custom-components-theme($anms-light-theme);
 }
 
 .black-theme {
-  @include mat.all-component-themes($anms-black-theme);
+  @include mat-components-theme($anms-black-theme);
 
   @include custom-components-theme($anms-black-theme);
 }
@@ -42,11 +62,11 @@
 
 @media (prefers-color-scheme: dark) {
 
-  // .theme-wrapper {
-  //   @include mat.all-component-themes($anms-black-theme);
+  .theme-wrapper {
+    @include mat.all-component-themes($anms-black-theme);
   
-  //   @include custom-components-theme($anms-black-theme);
-  // }
+    @include custom-components-theme($anms-black-theme);
+  }
 }
 
 html,

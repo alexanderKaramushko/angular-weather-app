@@ -1,11 +1,15 @@
 <form class="form" [formGroup]="form" (ngSubmit)="handleSubmit()">
   <div>
-    <label for="latitude">Широта: </label>
-    <input data-testid="latitude" id="latitude" type="text" formControlName="latitude">
+    <mat-form-field>
+      <mat-label>Широта</mat-label>
+      <input matInput data-testid="latitude" id="latitude" type="text" formControlName="latitude">
+    </mat-form-field>
   </div>
   <div>
-    <label for="longitude">Долгота: </label>
-    <input data-testid="longitude" id="longitude" type="text" formControlName="longitude">
+    <mat-form-field>
+      <mat-label>Долгота</mat-label>
+      <input matInput data-testid="longitude" id="longitude" type="text" formControlName="longitude">
+    </mat-form-field>
   </div>
-  <button data-testid="submit" type="submit" [disabled]="!form.valid">Apply</button>
+  <button mat-button data-testid="submit" type="submit" [disabled]="!form.valid" color="primary">Apply</button>
 </form>
