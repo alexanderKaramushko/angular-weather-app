@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, interval, map, Observable, scan, startWith, switchMap, throttleTime } from 'rxjs';
+import { BehaviorSubject, interval, map, Observable, scan, switchMap, takeWhile, throttleTime } from 'rxjs';
 
 export const enum NotificationType {
   ERROR,
@@ -20,8 +20,8 @@ export class NotificationsService {
 
   notifications$: Observable<Notification[]>;
 
-  constructor() {
-    this.notifications$ = this.notifier$.pipe(
+  static createNotifierObservable(observable: Observable<Notification[]>) {
+    return observable.pipe(
       throttleTime(100),
       scan((previousNotifications, notifications) => (
         [
@@ -31,11 +31,15 @@ export class NotificationsService {
       )),
       switchMap((notifications) => (
         interval(2000).pipe(
-          startWith(0),
+          takeWhile((i) => i <= notifications.length),
           map((i) => notifications.slice(i)),
         )
       )),
     );
+  }
+
+  constructor() {
+    this.notifications$ = NotificationsService.createNotifierObservable(this.notifier$);
   }
 
   notifySuccess(message: string) {
