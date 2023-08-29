@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, interval, map, Observable, scan, switchMap, throttleTime } from 'rxjs';
+import { BehaviorSubject, interval, map, Observable, scan, startWith, switchMap, throttleTime } from 'rxjs';
 
 export const enum NotificationType {
   ERROR,
@@ -29,8 +29,11 @@ export class NotificationsService {
           ...notifications,
         ]
       )),
-      switchMap((notifications) => interval(2000).pipe(
-        map((i) => notifications.slice(i)),
+      switchMap((notifications) => (
+        interval(2000).pipe(
+          startWith(0),
+          map((i) => notifications.slice(i)),
+        )
       )),
     );
   }
