@@ -54,7 +54,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     const iconUrl = 'assets/icons/map-marker.svg';
 
     const icon = new L.DivIcon({
-      html: `<img width="40px" src='${iconUrl}'/><span>Погода здесь</span>`,
+      html: `<img width="40px" style="transform: translate(-35%, -80%);" src='${iconUrl}'/><span>Погода здесь</span>`,
     });
 
     L.marker([latitude, longitude], { icon }).addTo(this.markersLayer);
