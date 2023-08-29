@@ -1,15 +1,12 @@
 .container {
   display: grid;
-  gap: 24px;
+  gap: 32px;
 
   /* stylelint-disable-next-line declaration-colon-space-after */
-  grid-template-areas:
-    "mode mode"
-    "view filters"
-  ;
+  grid-template-areas: "view filters";
 
-  grid-template-columns: auto minmax(320px, 600px);
-  grid-template-rows: 50px 400px;
+  grid-template-columns: max-content minmax(320px, 600px);
+  grid-template-rows: 400px;
   margin-top: 24px;
 }
 
