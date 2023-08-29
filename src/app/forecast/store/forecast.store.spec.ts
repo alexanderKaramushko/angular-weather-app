@@ -35,7 +35,7 @@ describe('Test forecast reducer', () => {
       forecast,
     };
 
-    const action = loadForecast(forecast);
+    const action = loadForecast({ forecast });
     const state = forecastStore.forecastReducer(initialState, action);
 
     expect(state).toEqual(newState);

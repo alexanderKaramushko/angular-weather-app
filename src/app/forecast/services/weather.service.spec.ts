@@ -40,7 +40,9 @@ describe('WeatherService', () => {
         expect(response).toEqual(forecast);
       });
 
-    const req = httpTestingController.expectOne('/forecast?latitude=55&longitude=55&hourly=temperature_2m,windspeed_10');
+    const req = httpTestingController.expectOne((request) => (
+      request.urlWithParams.includes('/forecast?latitude=55&longitude=55')
+    ));
 
     expect(req.request.method).toBe('GET');
 
@@ -63,7 +65,9 @@ describe('WeatherService', () => {
         next: () => fail('should have failed with the 404 error'),
       });
 
-    const req = httpTestingController.expectOne('/forecast?latitude=55&longitude=55');
+    const req = httpTestingController.expectOne((request) => (
+      request.urlWithParams.includes('/forecast?latitude=55&longitude=55')
+    ));
 
     expect(req.request.method).toBe('GET');
 

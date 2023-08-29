@@ -16,7 +16,7 @@ export class ForecastEffects {
       ofType(requestLoadForecast),
       switchMap((action) => (
         this.weatherService.getForecast(action.forecastQuery).pipe(
-          map((data) => loadForecast(data)),
+          map((data) => loadForecast({ forecast: data })),
         )
       )),
     ))

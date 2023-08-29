@@ -16,7 +16,7 @@ export const initialState: ForecastState = {
 
 export const forecastReducer = createReducer(
   initialState,
-  on(loadForecast, (state, forecast) => ({ ...state, forecast })),
+  on(loadForecast, (state, action) => ({ ...state, forecast: action.forecast })),
 );
 
 export const selectForecast = (state: ForecastState) => state.forecast;

@@ -10,5 +10,5 @@ export const requestLoadForecast = createAction(
 
 export const loadForecast = createAction(
   '[Forecast/API] Load forecast',
-  props<Forecast>(),
+  props<{ forecast: Forecast }>(),
 );
