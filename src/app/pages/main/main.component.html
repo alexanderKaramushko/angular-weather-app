@@ -1,5 +1,6 @@
+<h1 class="title">{{ 'aw.main.title' | translate }}</h1>
 <mat-tab-group>
-  <mat-tab label="Кратко" id="brief"></mat-tab>
-  <mat-tab label="Подробнее" id="detail"></mat-tab>
+  <mat-tab [label]="'aw.main.brief.title' | translate" id="brief"></mat-tab>
+  <mat-tab [label]="'aw.main.detail.title' | translate" id="detail"></mat-tab>
 </mat-tab-group>
 <router-outlet></router-outlet>

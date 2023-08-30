@@ -23,7 +23,9 @@ export class ApiInterceptor implements HttpInterceptor {
     next: HttpHandler,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Observable<HttpEvent<any>> {
-    const apiReq = req.clone({ url: `${this.environment.getValue('apiUrl')}${req.url}` });
+    const apiReq = req.url.includes('/assets')
+      ? req
+      : req.clone({ url: `${this.environment.getValue('apiUrl')}${req.url}` });
 
     return next.handle(apiReq);
   }

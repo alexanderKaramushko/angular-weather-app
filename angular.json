@@ -6,6 +6,7 @@
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
+      "prefix": "aw",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -22,7 +23,11 @@
             ],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              }
             ]
           },
           "configurations": {

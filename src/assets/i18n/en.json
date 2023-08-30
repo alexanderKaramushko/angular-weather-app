@@ -1,0 +1,23 @@
+{
+  "aw.main.title": "Weather",
+  "aw.main.brief.title": "In brief",
+  "aw.main.detail.title": "Detailed",
+  "aw.settings.title": "Settings",
+  "aw.settings.theme.title": "Theme",
+  "aw.settings.theme.dark": "Dark",
+  "aw.settings.theme.light": "Light",
+  "aw.settings.theme.nature": "Nature",
+  "aw.settings.theme.default": "Default",
+  "aw.settings.language.title": "Language",
+  "aw.settings.language.en": "EN",
+  "aw.settings.language.ru": "RU",
+  "aw.features.forecast.filter.title": "Filter mode",
+  "aw.features.forecast.filter.map": "Map",
+  "aw.features.forecast.filter.input": "Input",
+  "aw.features.forecast.day": "Day",
+  "aw.features.forecast.temperature": "Temperature",
+  "aw.features.forecast.windspeed": "Windspeed",
+  "aw.features.forecast.latitude": "Latitude",
+  "aw.features.forecast.longitude": "Longitude",
+  "aw.features.forecast.apply": "Apply"
+}

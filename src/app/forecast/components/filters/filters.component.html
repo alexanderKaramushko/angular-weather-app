@@ -1,15 +1,16 @@
 <form class="form" [formGroup]="form" (ngSubmit)="handleSubmit()">
   <div>
     <mat-form-field>
-      <mat-label>Широта</mat-label>
+      <mat-label>{{ 'aw.features.forecast.latitude' | translate }}</mat-label>
       <input matInput data-testid="latitude" id="latitude" type="text" formControlName="latitude">
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <mat-label>Долгота</mat-label>
+      <mat-label>{{ 'aw.features.forecast.longitude' | translate }}</mat-label>
       <input matInput data-testid="longitude" id="longitude" type="text" formControlName="longitude">
     </mat-form-field>
   </div>
-  <button mat-button data-testid="submit" type="submit" [disabled]="!form.valid" color="primary">Применить</button>
+  <button mat-button data-testid="submit" type="submit" [disabled]="!form.valid" color="primary">{{
+    'aw.features.forecast.apply' | translate }}</button>
 </form>

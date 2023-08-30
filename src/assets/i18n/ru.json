@@ -1,0 +1,23 @@
+{
+  "aw.main.title": "Погода",
+  "aw.main.brief.title": "Кратко",
+  "aw.main.detail.title": "Подробнее",
+  "aw.settings.title": "Настройки",
+  "aw.settings.theme.title": "Тема",
+  "aw.settings.theme.dark": "Темная",
+  "aw.settings.theme.light": "Светлая",
+  "aw.settings.theme.nature": "Природа",
+  "aw.settings.theme.default": "По умолчанию",
+  "aw.settings.language.title": "Язык",
+  "aw.settings.language.en": "Английский",
+  "aw.settings.language.ru": "Русский",
+  "aw.features.forecast.filter.title": "Режим фильтрации",
+  "aw.features.forecast.filter.map": "Карта",
+  "aw.features.forecast.filter.input": "Ввод",
+  "aw.features.forecast.day": "Сутки",
+  "aw.features.forecast.temperature": "Температура",
+  "aw.features.forecast.windspeed": "Скороть ветра",
+  "aw.features.forecast.latitude": "Широта",
+  "aw.features.forecast.longitude": "Долгота",
+  "aw.features.forecast.apply": "Применить"
+}

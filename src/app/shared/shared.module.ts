@@ -18,6 +18,7 @@ import {
   faCircleExclamation,
   faClose,
 } from '@fortawesome/free-solid-svg-icons';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { CustomSnackbarComponent } from './components/custom-snackbar/custom-snackbar.component';
 import { IfLoadedViewModule } from './components/if-loaded-view/if-loaded-view.module';
@@ -38,6 +39,7 @@ import { MapComponent } from './components/map/map.component';
     MatSidenavModule,
     MatToolbarModule,
     MatInputModule,
+    TranslateModule,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { MapComponent } from './components/map/map.component';
     MatSidenavModule,
     MatToolbarModule,
     MatInputModule,
+    TranslateModule,
   ],
 })
 export class SharedModule {

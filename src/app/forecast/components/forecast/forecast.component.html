@@ -10,10 +10,12 @@
   <div class="view">
     <div class="mode">
       <mat-form-field data-testid="mode-button">
-        <mat-label>Режим фильтрации</mat-label>
+        <mat-label>{{ 'aw.features.forecast.filter.title' | translate }}</mat-label>
         <mat-select [(value)]="mode" matNativeControl required>
-          <mat-option [value]="modes.MAP" data-testid="mode-map">Карта</mat-option>
-          <mat-option [value]="modes.INPUTS" data-testid="mode-inputs">Ввод</mat-option>
+          <mat-option [value]="modes.MAP" data-testid="mode-map">{{ 'aw.features.forecast.filter.map' | translate
+            }}</mat-option>
+          <mat-option [value]="modes.INPUTS" data-testid="mode-inputs">{{ 'aw.features.forecast.filter.input' |
+            translate }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -22,7 +24,7 @@
     <ng-template #forecast let-forecast="forecastData">
       <if-loaded-view [isLoading]="forecast">
         <ng-container [ngSwitch]="forecast?.current_weather?.is_day">
-          Сутки:
+          {{ 'aw.features.forecast.day' | translate }}:
           <ng-container *ngSwitchCase="1">
             <img width="100px" src="/assets/icons/day.svg" alt="day.svg">
           </ng-container>
@@ -34,10 +36,12 @@
           </ng-container>
         </ng-container>
         <div>
-          Температура: {{forecast?.current_weather?.temperature ?? 'n/d'}}
+          {{ 'aw.features.forecast.temperature' | translate }}
+          : {{forecast?.current_weather?.temperature ?? 'n/d'}}
         </div>
         <div>
-          Скорость ветра: {{forecast?.current_weather?.windspeed ?? 'n/d'}}
+          {{ 'aw.features.forecast.windspeed' | translate }}:
+          : {{forecast?.current_weather?.windspeed ?? 'n/d'}}
         </div>
       </if-loaded-view>
     </ng-template>

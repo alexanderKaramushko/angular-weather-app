@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SharedModule } from '../../../shared/shared.module';
 import { Filters, FiltersComponent } from './filters.component';
@@ -24,7 +25,7 @@ describe('FiltersComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [FiltersComponent],
-      imports: [ReactiveFormsModule, NoopAnimationsModule, SharedModule],
+      imports: [ReactiveFormsModule, NoopAnimationsModule, SharedModule, TranslateModule.forRoot()],
     });
     fixture = TestBed.createComponent(FiltersComponent);
     component = fixture.componentInstance;

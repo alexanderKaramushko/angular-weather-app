@@ -1,18 +1,31 @@
-<ng-container *ngIf="theme$ | async; let theme">
-  <div class="theme-wrapper">
-    <main-layout>
-      <div sidenav>
-        <mat-form-field data-testid="mode-button">
-          <mat-label>Тема</mat-label>
-          <mat-select (valueChange)="changeTheme($event)" [value]="theme" matNativeControl>
-            <mat-option [value]="themes.DARK" data-testid="mode-map">Темная</mat-option>
-            <mat-option [value]="themes.LIGHT" data-testid="mode-inputs">Светлая</mat-option>
-            <mat-option [value]="themes.NATURE" data-testid="mode-inputs">Природа</mat-option>
-            <mat-option [value]="themes.DEFAULT" data-testid="mode-inputs">Дефолт</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <router-outlet></router-outlet>
-    </main-layout>
-  </div>
-</ng-container>
+<div class="theme-wrapper">
+  <main-layout>
+    <div sidenav>
+      <ng-container *ngIf="theme$ | async; let theme">
+        <div>
+          <mat-form-field>
+            <mat-label>{{ 'aw.settings.theme.title' | translate }}</mat-label>
+            <mat-select (valueChange)="changeTheme($event)" [value]="theme" matNativeControl>
+              <mat-option [value]="themes.DARK">{{ 'aw.settings.theme.dark' | translate }}</mat-option>
+              <mat-option [value]="themes.LIGHT">{{ 'aw.settings.theme.light' | translate }}</mat-option>
+              <mat-option [value]="themes.NATURE">{{ 'aw.settings.theme.nature' | translate }}</mat-option>
+              <mat-option [value]="themes.DEFAULT">{{ 'aw.settings.theme.default' | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="language$ | async; let language">
+        <div>
+          <mat-form-field>
+            <mat-label>{{ 'aw.settings.language.title' | translate }}</mat-label>
+            <mat-select (valueChange)="changeLanguage($event)" [value]="language" matNativeControl>
+              <mat-option [value]="languages.EN">{{ 'aw.settings.language.en' | translate }}</mat-option>
+              <mat-option [value]="languages.RU">{{ 'aw.settings.language.ru' | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </ng-container>
+    </div>
+    <router-outlet></router-outlet>
+  </main-layout>
+</div>

@@ -5,8 +5,14 @@ export enum Theme {
   NATURE = 'nature-theme',
 }
 
+export enum Language {
+  EN = 'en',
+  RU = 'ru',
+}
+
 export type SettingsState = {
   theme: Theme;
+  language: Language;
 }
 
 export interface SettingsStore {
