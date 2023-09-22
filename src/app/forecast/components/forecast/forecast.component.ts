@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -16,6 +16,7 @@ enum Mode {
 }
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'forecast',
   styleUrls: ['./forecast.component.css'],
   templateUrl: './forecast.component.html',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -10,6 +10,7 @@ import { Language, Theme } from './core/store/settings/settings.model';
 import { languageSelector, themeSelector } from './core/store/settings/settings.selectors';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',

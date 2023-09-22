@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export type Filters = {
@@ -9,6 +9,7 @@ export type Filters = {
 const coordinatePattern = /^\d\d\.\d\d\d$/;
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'filters',
   styleUrls: ['./filters.component.css'],
   templateUrl: './filters.component.html',
