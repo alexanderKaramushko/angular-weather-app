@@ -8,7 +8,7 @@ Shitty start-up to dive into Angular.
 
 ## Demo
 
-[https://angular-weather-lgys3l6gq-amorgothb.vercel.app/](https://angular-weather-app-nu.vercel.app/)
+https://angular-weather-app-git-master-amorgothb.vercel.app/
 
 ## Deploy
 
